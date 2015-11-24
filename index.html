@@ -1,17 +1,59 @@
 <!DOCTYPE html>
-
 <html>
-<head>
-    <title>Hello World</title>
-</head>
 <body>
-    
-    <p>Header...</p>
-    <button name="button1" value="Press Me" type="button">
-        
-    </button>
-    
-    
-    <p>Footer...</p>
+
+<p>This example uses the HTML DOM to assign an "onclick" event to a p element.</p>
+
+<form>
+    <fieldset>
+        <legend>Add Action</legend>
+        <div>
+            <label id="ActionNameLabel">Name:</label>
+            <input type="text" id="ActionNameInput" value""></input>
+        </div>
+    </fieldset>
+</form>
+
+<ul id="myul">
+</ul>
+<script>
+myFunction();
+//myOtherFunction();
+cm2();
+
+function myFunction() {
+    var btn = document.createElement("BUTTON");
+    btn.onclick = function() {
+        myFunction();
+    };
+    var tn = document.createTextNode("Click me");
+    btn.appendChild(tn);
+    document.body.appendChild(btn);
+}
+
+function myOtherFunction() {
+    var f = document.getElementById("ActionNameInput");
+    var l = document.getElementById("myul");
+    if(l != null) {
+        var item = document.createElement('li');
+        var tn = document.createTextNode(f.value);
+        f.value = '';
+        item.appendChild(tn);
+        l.appendChild(item);
+    }
+   
+}
+
+function cm2(){
+    var btn = document.createElement("BUTTON");
+    var tn = document.createTextNode("Click me 2");
+    btn.onclick = function() {
+        myOtherFunction();
+    };
+    btn.appendChild(tn);
+    document.body.appendChild(btn);
+}
+</script>
+
 </body>
 </html>
